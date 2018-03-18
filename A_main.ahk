@@ -32,7 +32,15 @@ F10::
 
 
 
-;-- Ouvrir Relire_Fichiers          CTRL + F10
+
+
+
+
+
+;----------------------------------------------------------------------------------
+;-- SCRIPTS -----------------------------------------------------------------------
+
+;-- Consult Relire_Fichiers          CTRL + F10
 ^F10::
     IfWinNotExist paths*
     {  
@@ -44,11 +52,9 @@ F10::
         WinActivate
     }
       Return
+
 ;-- Execute Relire_Fichiers         CTRL + SHIFT + F10
 ^!F10::Run "C:\Windows\System32\schtasks.exe" "/run" "/tn" "my_tasks\RelireFichiers"
-
-
-
 
 ;-- Trigger Backup Script           WIN + 2
 #2::
@@ -57,17 +63,23 @@ F10::
     ;Run, "C:\Windows\System32\schtasks.exe" "/run" "/tn" "my_tasks\tarbackup"
     return
 
-
-
 ;-- Run SSH SFTP Client             F8
 F8::Run, "C:\Users\ffran\Anaconda3\python.exe" "C:\_util\ssh_sftp_client\CLIENT.py"
-
 
 ;-- Make screen go black                CTRL + SHIFT + PRTSCR
 ^+VK2C::Run "C:\_util\other\sleepMonitor.vbs"
 
 
 
+
+
+
+
+
+
+
+;----------------------------------------------------------------------------------
+;-- APPLICATIONS ------------------------------------------------------------------
 
 ;-- KeyPass                             WIN + ALT + P
 #!p::
@@ -77,16 +89,12 @@ IfWinExist .*keypass.kdbx
 WinActivate
 Return
 
-
-
 ;-- Snipping Tool                       PRTSCR
 VK2C::
     Run, SnippingTool.exe
     Sleep, 500
     Send {Ctrl down}n{Ctrl up}
     return
-
-
 
 ;-- Python console                      F9      
 #IfWinNotActive, ahk_class TFruityLoopsMainForm 
