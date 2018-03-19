@@ -5,7 +5,7 @@
     ^+f::
         path := Explorer_GetPath()
         Run touch %path%\______.txt
-        return
+        Return
 
     ; Toggle hidden files               CTRL + SHIFT + H
     +^h::
@@ -15,14 +15,17 @@
         else
           RegWrite, REG_DWORD, HKEY_CURRENT_USER, Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced, Hidden, 2
         Send {F5}
-        return 
+        Return 
     
     ; Copy selected file's path         CTRL + SHIFT + C
     +^c::
     sel := Explorer_GetSelected()
     If (sel)
+    {
         clipboard := sel
-    Return   
+    }
+    else
+        Return   
     
     ; Open selected file with Vim       WIN + ALT + V
     #!v::
@@ -40,7 +43,8 @@
             WinActivate 
         }
     }
-    Return
+    else
+        Return
 
     ; Open current folder in CMD        WIN + ALT + C
     #!c::
@@ -53,7 +57,8 @@
     {
         WinActivate
     }
-    Return
+    else
+        Return
 
 
     ; Empty recycle bin                 CTRL + SHIFT + DEL
@@ -82,12 +87,13 @@
         CUR_DIR := Explorer_GetPath()
         InputBox, PROJ_NAME, Projet C++, Nom de projet,,200,120,,,,,Project
         Run "C:\Users\ffran\Anaconda3\pythonw.exe" "C:\_util\auto_cpp_project\auto_main.py" %CUR_DIR% %PROJ_NAME%
-        return
+        Return
     ; Create C++ class              SHIFT + F5
     +F5::
         CUR_DIR := Explorer_GetPath()
         InputBox, CLASS_NAME, Classe C++, Nom de classe,,200,120,,,,,Classe
         Run "C:\Users\ffran\Anaconda3\pythonw.exe" "C:\_util\auto_cpp_project\auto_class.py" %CUR_DIR% %CLASS_NAME%
-        return
+        Return
  
 }
+#IfWinActive

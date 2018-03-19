@@ -12,3 +12,4 @@ VKDF::LCtrl
     ^Q::Send exit{Enter}
         Return
 }
+#IfWinActive

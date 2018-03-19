@@ -29,7 +29,7 @@
         Send {Right}{Right}{Enter}
         Sleep, 200
         Send {LWin down}{Right}{LWin up}
-        return
+        Return
 
     ; Switch to Farine              ALT + F12
     !F12::
@@ -44,6 +44,6 @@
         Send {Right}{Enter}
         Sleep, 200
         Send {LWin down}{Left}{LWin up}
-        return
-    return
+        Return
 }
+#IfWinActive
