@@ -19,45 +19,42 @@
     
     ; Copy selected file's path         CTRL + SHIFT + C
     +^c::
-    sel := Explorer_GetSelected()
-    If (sel)
-    {
-        clipboard := sel
-    }
-    else
+        sel := Explorer_GetSelected()
+        If (sel)
+        {
+            clipboard := sel
+        }
         Return   
     
     ; Open selected file with Vim       WIN + ALT + V
     #!v::
-    sel := Explorer_GetSelected()
-    If (sel)
-    {
-        SplitPath, sel, file_name
-        IfWinNotExist %file_name%*
+        sel := Explorer_GetSelected()
+        If (sel)
         {
-            Run, "C:\Program Files (x86)\Vim\vim80\gvim.exe" %sel%
-            Sleep, 500
+            SplitPath, sel, file_name
+            IfWinNotExist %file_name%*
+            {
+                Run, "C:\Program Files (x86)\Vim\vim80\gvim.exe" %sel%
+                Sleep, 500
+            }
+            IfWinExist %file_name%*
+            {
+                WinActivate 
+            }
         }
-        IfWinExist %file_name%*
-        {
-            WinActivate 
-        }
-    }
-    else
         Return
 
     ; Open current folder in CMD        WIN + ALT + C
     #!c::
-    sel := Explorer_GetPath()
-    If (sel)
-    {
-        Run, C:\_util\other\OpenInConsole.bat %sel%
-    }
-    IfWinExist *cmd.exe
-    {
-        WinActivate
-    }
-    else
+        sel := Explorer_GetPath()
+        If (sel)
+        {
+            Run, C:\_util\other\OpenInConsole.bat %sel%
+        }
+        IfWinExist *cmd.exe
+        {
+            WinActivate
+        }
         Return
 
 
