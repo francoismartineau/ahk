@@ -52,8 +52,7 @@ F10::
     {
         WinActivate
     }
-    else
-        Return
+    Return
 
 ;-- Execute Relire_Fichiers         CTRL + ALT + F10
 ^!F10::Run "C:\Windows\System32\schtasks.exe" "/run" "/tn" "my_tasks\RelireFichiers"
