@@ -18,8 +18,7 @@ F10::
     {
         WinActivate 
     }
-    else
-        Return
+    Return
 
 
 ;-- Open Folders                        WIN + ALT + NUMBERS
