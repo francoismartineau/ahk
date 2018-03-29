@@ -87,23 +87,23 @@
         InputBox, CLASS_NAME, Classe C++, Nom de classe,,200,120,,,,,Classe
         Run "C:\Users\ffran\Anaconda3\pythonw.exe" "C:\_util\auto_cpp_project\auto_class.py" %CUR_DIR% %CLASS_NAME% ,, Hide
         Return
-    ; Create C++ file                   ALT + F3
-    !F3::
+    ; Create C++ file                   CTRL + F3
+    ^F3::
         CUR_DIR := Explorer_GetPath()
         Run touch %CUR_DIR%/main.cpp ,, Hide
         Return
-    ; Create Python file                ALT + F2
-    !F2::
+    ; Create Python file                CTRL + F2
+    ^F2::
         CUR_DIR := Explorer_GetPath()
         Run touch %CUR_DIR%/main.py ,, Hide
         Return
-    ; Run Python file                   F2
-    F2::
+    ; Run Python file                   ALT + F2
+    !F2::
         CUR_FILE := Explorer_GetSelected()
         Run python %CUR_FILE%
         Return
-    ; Create text file                  ALT + F1
-    !F1::
+    ; Create text file                  CTRL + F1
+    ^F1::
         CUR_DIR := Explorer_GetPath()
         Run touch %CUR_DIR%/______notes.txt ,, Hide
         Return
