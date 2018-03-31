@@ -39,6 +39,25 @@
         }
         Return
 
+    ; Edit selected file in Photoshop   WIN + ALT + P
+    #!p::
+        sel := Explorer_GetSelected()
+        If (sel)
+        {
+            SplitPath, sel, file_name
+            IfWinNotExist %file_name%*
+            {
+                Run, "C:\Program Files\Adobe\Adobe Photoshop CC 2015\Photoshop.exe" %sel%
+                Sleep, 500
+            }
+            IfWinExist %file_name%*
+            {
+                WinActivate 
+            }
+        }
+        Return
+
+
     ; Open current folder in CMD        WIN + ALT + C
     #!c::
         sel := Explorer_GetPath()
