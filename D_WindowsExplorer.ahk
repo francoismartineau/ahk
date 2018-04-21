@@ -38,6 +38,24 @@
             }
         }
         Return
+    
+    ; Open selected file with SUMATRA   WIN + ALT + S
+    #!s::
+        sel := Explorer_GetSelected()
+        If (sel)
+        {
+            SplitPath, sel, file_name
+            IfWinNotExist %file_name%*
+            {
+                Run, "C:\Program Files\SumatraPDF\SumatraPDF.exe" %sel%
+                Sleep, 500
+            }
+            IfWinExist %file_name%*
+            {
+                WinActivate 
+            }
+        }
+        Return
 
     ; Edit selected file in Photoshop   WIN + ALT + P
     #!p::

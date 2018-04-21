@@ -64,7 +64,7 @@ F10::
     Return
 
 ;-- Run SSH SFTP Client             F8
-F8::Run, "C:\Users\ffran\Anaconda3\python.exe" "C:\_util\ssh_sftp_client\CLIENT.py"
+;F8::Run, "C:\Users\ffran\Anaconda3\python.exe" "C:\_util\ssh_sftp_client\CLIENT.py"
 
 ;-- Make screen go black            CTRL + SHIFT + PRTSCR
 ^+VK2C::Run "C:\_util\other\sleepMonitor.vbs"
